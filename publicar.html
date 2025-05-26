@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!--
+    Tu Bici Online - Publicar Bicicleta
+    Descripción: Formulario para publicar bicicleta o componente (panel izquierdo) con navegación fija superior
+  -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicar en Tu Bici Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <!-- Navegación fija superior -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-green-600">Tu Bici Online</a>
+            <!-- Botón móvil -->
+            <button id="btn-menu" class="block lg:hidden focus:outline-none">
+                <svg class="h-6 w-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <!-- Menú de navegación -->
+            <nav id="menu" class="hidden lg:flex">
+                <ul class="flex flex-col lg:flex-row lg:space-x-6">
+                    <li><a href="index.html" class="block py-2 lg:py-0 hover:text-green-500">Inicio</a></li>
+                    <li><a href="index.html" class="block py-2 lg:py-0 hover:text-green-500">Tienda</a></li>
+                    <li><a href="publicar.html" class="block py-2 lg:py-0 hover:text-green-500">Publicar</a></li>
+                    <li><a href="contacto.html" class="block py-2 lg:py-0 hover:text-green-500">Contacto</a></li>
+                </ul>
+            </nav>
+            <!-- Botón usuario/login -->
+            <div class="hidden lg:block">
+                <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Iniciar Sesión</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenedor principal con margen para no tapar por header -->
+    <main class="mt-4 max-w-4xl mx-auto p-6">
+        <div class="bg-white rounded shadow flex flex-col lg:flex-row overflow-hidden">
+            <!-- Panel izquierdo: Formulario -->
+            <aside class="w-full lg:w-1/2 p-6">
+                <h2 class="text-2xl font-semibold mb-4 text-green-600">Publicar artículo</h2>
+                <form class="space-y-6">
+                    <!-- Fotos -->
+                    <div>
+                        <label class="block mb-2 font-medium">Fotos (0/10)</label>
+                        <div class="border-2 border-dashed border-gray-300 rounded p-6 text-center">
+                            <!-- Simbolo estético-->
+                            <svg class="mx-auto h-10 w-10 text-gray-400" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <rect x="3" y="5" width="18" height="14" rx="2" ry="2" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 7l6 6 4-4 8 8" />
+                            </svg>
+                            <p class="mt-2 text-gray-600">Arrastra o <span class="text-green-600 font-medium">agrega
+                                    fotos</span></p>
+                            <input type="file" accept="image/*" multiple class="hidden" id="photo-upload">
+                            <button type="button" onclick="document.getElementById('photo-upload').click()"
+                                class="mt-3 px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Seleccionar</button>
+                        </div>
+                    </div>
+
+                    <!-- Título -->
+                    <div>
+                        <label for="titulo" class="block mb-2 font-medium">Título</label>
+                        <input id="titulo" type="text" placeholder="Ej: Bicicleta de ruta 2020"
+                            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                            required>
+                    </div>
+
+                    <!-- Precio -->
+                    <div>
+                        <label for="precio" class="block mb-2 font-medium">Precio (ARS)</label>
+                        <input id="precio" type="number" step="0.01" placeholder="Ej: 45000"
+                            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                            required>
+                    </div>
+
+                    <!-- Descripción -->
+                    <div>
+                        <label for="descripcion" class="block mb-2 font-medium">Descripción</label>
+                        <textarea id="descripcion" rows="5" placeholder="Describe el estado, características, etc."
+                            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+                            required></textarea>
+                    </div>
+
+                    <!-- Botón Siguiente -->
+                    <div class="text-right">
+                        <button type="submit" class="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+                            Siguiente
+                        </button>
+                    </div>
+                </form>
+            </aside>
+
+            <!-- Panel derecho: Placeholder de vista previa -->
+            <section class="hidden lg:block lg:w-1/2 bg-gray-50 p-6">
+                <h3 class="text-xl font-semibold mb-4">Vista previa</h3>
+                <div class="h-full border-2 border-gray-200 rounded flex items-center justify-center text-gray-400">
+                    Aquí irá la preview de tu publicación
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Toggle menú móvil
+        const btnMenu = document.getElementById('btn-menu');
+        const menu = document.getElementById('menu');
+        btnMenu.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

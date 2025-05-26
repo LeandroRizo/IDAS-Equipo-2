@@ -1,0 +1,46 @@
+<!-- Presentacion -->
+<section>
+    <!--
+    Tu Bici Online - Marketplace de bicicletas
+    Descripción: 
+    Equipo 2: Lopez Rizo Leandro, Biagini Bruno, Leone Diego, Marchetti Lucas, Bulacio Santino, Barrionuevo Gustavo. -->
+</section>
+
+<!-- NAVBAR: copia este <header> y el <script> en tus páginas -->
+<section>
+    <header class="bg-white shadow sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-green-600">Tu Bici Online</a>
+            <!-- Botón móvil -->
+            <button id="btn-menu" class="block lg:hidden focus:outline-none">
+                <svg class="h-6 w-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <!-- Menú de navegación -->
+            <nav id="menu" class="hidden lg:flex">
+                <ul class="flex flex-col lg:flex-row lg:space-x-6">
+                    <li><a href="index.html" class="block py-2 lg:py-0 hover:text-green-500">Inicio</a></li>
+                    <li><a href="tienda.html" class="block py-2 lg:py-0 hover:text-green-500">Tienda</a></li>
+                    <li><a href="publicar.html" class="block py-2 lg:py-0 hover:text-green-500">Publicar</a></li>
+                    <li><a href="contacto.html" class="block py-2 lg:py-0 hover:text-green-500">Contacto</a></li>
+                </ul>
+            </nav>
+            <!-- Botón usuario/login -->
+            <div class="hidden lg:block">
+                <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+                    Iniciar Sesión
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- SCRIPT: para que el menú hamburguesa funcione en móvil -->
+    <script>
+        const btnMenu = document.getElementById('btn-menu');
+        const menu = document.getElementById('menu');
+        btnMenu.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</section>

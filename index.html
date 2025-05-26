@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!--
+    Tu Bici Online - Marketplace de bicicletas
+    Descripción: Base de la página principal con estructura semántica y Tailwind CSS.
+    Equipo 2: Lopez Rizo Leandro, Biagini Bruno, Leone Diego, Marchetti Lucas, Bulacio Santino, Barrionuevo Gustavo. -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Bici Online</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Header / Navegación principal -->
+  <header class="bg-white shadow">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="text-2xl font-bold text-green-600">Tu Bici Online</a>
+      <!-- Botón móvil -->
+      <button id="btn-menu" class="block lg:hidden focus:outline-none">
+        <svg class="h-6 w-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <!-- Menú de navegación -->
+      <nav id="menu" class="hidden lg:flex">
+        <ul class="flex flex-col lg:flex-row lg:space-x-6">
+          <li><a href="#" class="block py-2 lg:py-0 hover:text-green-500">Inicio</a></li>
+          <li><a href="#" class="block py-2 lg:py-0 hover:text-green-500">Tienda</a></li>
+          <li><a href="publicar.html" class="block py-2 lg:py-0 hover:text-green-500">Publicar</a></li>
+          <li><a href="contacto.html" class="block py-2 lg:py-0 hover:text-green-500">Contacto</a></li>
+        </ul>
+      </nav>
+      <!-- Botón usuario/login -->
+      <div class="hidden lg:block">
+        <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Iniciar Sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main - Contenido principal -->
+  <main class="container mx-auto px-4 py-8">
+    <!-- Filtros desplegables en móvil -->
+    <details class="mb-6 lg:hidden bg-white p-4 rounded shadow">
+      <summary class="font-semibold cursor-pointer">Filtrar productos</summary>
+      <div class="mt-4">
+        <label for="disciplina-mobile" class="block mb-2 font-medium">Disciplina</label>
+        <select id="disciplina-mobile" class="w-full border-gray-300 rounded">
+          <option value="">Todas</option>
+          <option value="ruta">Ruta</option>
+          <option value="mtb">MTB</option>
+          <option value="bmx">BMX</option>
+          <option value="urbano">Urbano</option>
+        </select>
+      </div>
+    </details>
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+      <!-- Sidebar de filtros en desktop -->
+      <aside class="hidden lg:block lg:col-span-1 bg-white p-6 rounded shadow">
+        <h2 class="text-xl font-semibold mb-4">Filtrar por</h2>
+        <div class="mb-6">
+          <label for="disciplina" class="block mb-2 font-medium">Disciplina</label>
+          <select id="disciplina" class="w-full border-gray-300 rounded">
+            <option value="">Todas</option>
+            <option value="ruta">Ruta</option>
+            <option value="mtb">MTB</option>
+            <option value="bmx">BMX</option>
+            <option value="urbano">Urbano</option>
+          </select>
+        </div>
+      </aside>
+
+      <!-- Sección de productos -->
+      <section class="lg:col-span-3">
+        <!-- Barra de búsqueda -->
+        <div class="mb-6">
+          <input type="text" placeholder="Buscar bicicletas o componentes..." 
+                 class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" />
+        </div>
+        <!-- Grid de productos -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Plantilla de tarjeta de producto -->
+          <article class="bg-white rounded shadow overflow-hidden flex flex-col">
+            <img src="https://philco.com.ar/media/catalog/product/cache/c8f6a96bef9e9f64cd4973587df2520f/b/i/bici_new_san00043.jpg" alt="Imagen bicicleta" class="h-48 w-full object-cover" />
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-lg mb-2">Bicicleta MTB</h3>
+              <p class="text-gray-600 flex-1">Descripción: Talle 20 Rodado 29 Verde Battle.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-xl font-bold text-green-600">$ 850.000</span>
+                <a href="#" class="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700">Ver</a>
+              </div>
+            </div>
+          </article>
+          <!-- Repetir tarjetas según datos dinámicos -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white mt-12 border-t">
+    <div class="container mx-auto px-4 py-6 text-center text-sm text-gray-500">
+      &copy; 2025 Tu Bici Online. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <!-- Scripts de interactividad -->
+  <script>
+    // Toggle menú móvil
+    const btnMenu = document.getElementById('btn-menu');
+    const menu = document.getElementById('menu');
+    btnMenu.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
