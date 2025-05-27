@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <!--
     Tu Bici Online - Marketplace de bicicletas
@@ -11,6 +12,7 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100 text-gray-800">
   <!-- Header / Navegación principal -->
   <header class="bg-white shadow">
@@ -74,23 +76,57 @@
       <section class="lg:col-span-3">
         <!-- Barra de búsqueda -->
         <div class="mb-6">
-          <input type="text" placeholder="Buscar bicicletas o componentes..." 
-                 class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" />
+          <input type="text" placeholder="Buscar bicicletas o componentes..."
+            class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" />
         </div>
         <!-- Grid de productos -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Plantilla de tarjeta de producto -->
-          <article class="bg-white rounded shadow overflow-hidden flex flex-col">
-            <img src="https://philco.com.ar/media/catalog/product/cache/c8f6a96bef9e9f64cd4973587df2520f/b/i/bici_new_san00043.jpg" alt="Imagen bicicleta" class="h-48 w-full object-cover" />
+          <article class="producto bg-white rounded shadow overflow-hidden flex flex-col" data-disciplina="mtb">
+            <img src="images/bicicleta-mtb.webp" alt="Imagen bicicleta" class="h-48 w-full object-cover" />
             <div class="p-4 flex-1 flex flex-col">
               <h3 class="font-semibold text-lg mb-2">Bicicleta MTB</h3>
-              <p class="text-gray-600 flex-1">Descripción: Talle 20 Rodado 29 Verde Battle.</p>
+              <p class="text-gray-600 flex-1">Descripción: Talle S Rodado 27.5 Yellow Battle.</p>
               <div class="mt-4 flex items-center justify-between">
                 <span class="text-xl font-bold text-green-600">$ 850.000</span>
                 <a href="#" class="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700">Ver</a>
               </div>
             </div>
           </article>
+          <article class="producto bg-white rounded shadow overflow-hidden flex flex-col" data-disciplina="ruta">
+            <img src="images/bicicleta-ruta.jpg" alt="Imagen bicicleta" class="h-48 w-full object-cover" />
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-lg mb-2">Bicicleta Ruta</h3>
+              <p class="text-gray-600 flex-1">Descripción: Talle M Rodado 29 Black & White.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-xl font-bold text-green-600">$ 1.200.000</span>
+                <a href="#" class="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700">Ver</a>
+              </div>
+            </div>
+          </article>
+          <article class="producto bg-white rounded shadow overflow-hidden flex flex-col" data-disciplina="bmx">
+            <img src="images/bicicleta-bmx.webp" alt="Imagen bicicleta" class="h-48 w-full object-cover" />
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-lg mb-2">Bicicleta BMX</h3>
+              <p class="text-gray-600 flex-1">Descripción: Talle S Rodado 20 White.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-xl font-bold text-green-600">$ 650.000</span>
+                <a href="#" class="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700">Ver</a>
+              </div>
+            </div>
+          </article>
+          <article class="producto bg-white rounded shadow overflow-hidden flex flex-col" data-disciplina="urbano">
+            <img src="images/bicicleta-urbana.webp" alt="Imagen bicicleta" class="h-48 w-full object-cover" />
+            <div class="p-4 flex-1 flex flex-col">
+              <h3 class="font-semibold text-lg mb-2">Bicicleta Urbana</h3>
+              <p class="text-gray-600 flex-1">Descripción: Talle L Rodado 26 Black.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-xl font-bold text-green-600">$ 550.000</span>
+                <a href="#" class="px-3 py-1 bg-green-600 text-white rounded hover:bg-green-700">Ver</a>
+              </div>
+            </div>
+          </article>
+
           <!-- Repetir tarjetas según datos dinámicos -->
         </div>
       </section>
@@ -113,5 +149,33 @@
       menu.classList.toggle('hidden');
     });
   </script>
+  <script>
+    // Filtro para escritorio y móvil
+    const selectDesktop = document.getElementById('disciplina');
+    const selectMobile = document.getElementById('disciplina-mobile');
+    const productos = document.querySelectorAll('.producto');
+
+    function filtrarProductos(valor) {
+      productos.forEach(producto => {
+        const disciplina = producto.getAttribute('data-disciplina');
+        if (!valor || disciplina === valor) {
+          producto.style.display = 'flex';
+        } else {
+          producto.style.display = 'none';
+        }
+      });
+    }
+
+    // Eventos para ambos selects
+    [selectDesktop, selectMobile].forEach(select => {
+      if (select) {
+        select.addEventListener('change', e => {
+          filtrarProductos(e.target.value);
+        });
+      }
+    });
+  </script>
+
 </body>
+
 </html>
