@@ -1,20 +1,77 @@
-
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>Panel de Reportes de Usuario</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5; }
-        h1 { text-align: center; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        table, th, td { border: 1px solid #ccc; }
-        th, td { padding: 12px; text-align: left; }
-        canvas { max-width: 800px; margin: 0 auto; display: block; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid #ccc;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        canvas {
+            max-width: 800px;
+            margin: 0 auto;
+            display: block;
+        }
     </style>
 </head>
+
 <body>
+
+    <header class="bg-white shadow sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-green-600">Tu Bici Online</a>
+            <!-- Botón móvil -->
+            <button id="btn-menu" class="block lg:hidden focus:outline-none">
+                <svg class="h-6 w-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <!-- Menú de navegación -->
+            <nav id="menu" class="hidden lg:flex">
+                <ul class="flex flex-col lg:flex-row lg:space-x-6">
+                    <li><a href="index.html" class="block py-2 lg:py-0 hover:text-green-500">Inicio</a></li>
+                    <li><a href="tienda.html" class="block py-2 lg:py-0 hover:text-green-500">Tienda</a></li>
+                    <li><a href="publicar.html" class="block py-2 lg:py-0 hover:text-green-500">Publicar</a></li>
+                    <li><a href="contacto.html" class="block py-2 lg:py-0 hover:text-green-500">Contacto</a></li>
+                </ul>
+            </nav>
+            <!-- Botón usuario/login -->
+            <div class="hidden lg:block">
+                <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+                    Iniciar Sesión
+                </button>
+            </div>
+        </div>
+    </header>
+
     <h1>Panel de Reportes de Usuario</h1>
 
     <table>
@@ -27,14 +84,38 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>Juan Pérez</td><td>Publicó un producto</td><td>2025-05-25</td><td>14:30</td></tr>
-            <tr><td>Laura Alina Gómez</td><td>Envió un mensaje</td><td>2025-05-24</td><td>11:15</td></tr>
-            <tr><td>Carlos Díaz</td><td>Reportó un problema</td><td>2025-05-23</td></tr>
-            <tr><td>Maria López</td><td>Registró su cuenta</td><td>2025-05-22</td></tr>
+            <tr>
+                <td>Juan Pérez</td>
+                <td>Publicó un producto</td>
+                <td>2025-05-25</td>
+                <td>14:30</td>
+            </tr>
+            <tr>
+                <td>Laura Alina Gómez</td>
+                <td>Envió un mensaje</td>
+                <td>2025-05-24</td>
+                <td>11:15</td>
+            </tr>
+            <tr>
+                <td>Carlos Díaz</td>
+                <td>Reportó un problema</td>
+                <td>2025-05-23</td>
+            </tr>
+            <tr>
+                <td>Maria López</td>
+                <td>Registró su cuenta</td>
+                <td>2025-05-22</td>
+            </tr>
         </tbody>
     </table>
 
     <canvas id="actividadChart" width="800" height="400"></canvas>
+
+    <footer class="bg-white mt-12 border-t">
+        <div class="container mx-auto px-4 py-6 text-center text-sm text-gray-500">
+            &copy; 2025 Tu Bici Online. Todos los derechos reservados.
+        </div>
+    </footer>
 
     <script>
         const ctx = document.getElementById('actividadChart').getContext('2d');
@@ -60,5 +141,14 @@
             }
         });  
     </script>
+
+    <script>
+        const btnMenu = document.getElementById('btn-menu');
+        const menu = document.getElementById('menu');
+        btnMenu.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+
 </body>
 </html>
