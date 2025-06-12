@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <title>Panel de Reportes de Usuario</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -20,7 +21,6 @@
         }
 
         table {
-            width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
         }
@@ -38,9 +38,8 @@
         }
 
         canvas {
-            max-width: 800px;
-            margin: 0 auto;
             display: block;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -50,13 +49,12 @@
     <header class="bg-white shadow sticky top-0 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold text-green-600">Tu Bici Online</a>
-            <!-- Botón móvil -->
             <button id="btn-menu" class="block lg:hidden focus:outline-none">
                 <svg class="h-6 w-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
-            <!-- Menú de navegación -->
             <nav id="menu" class="hidden lg:flex">
                 <ul class="flex flex-col lg:flex-row lg:space-x-6">
                     <li><a href="index.html" class="block py-2 lg:py-0 hover:text-green-500">Inicio</a></li>
@@ -65,7 +63,6 @@
                     <li><a href="contacto.html" class="block py-2 lg:py-0 hover:text-green-500">Contacto</a></li>
                 </ul>
             </nav>
-            <!-- Botón usuario/login -->
             <div class="hidden lg:flex items-center gap-4">
                 <a href="carrito.html" class="carrito-icon" title="Ver carrito" style="position: relative;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#333"
@@ -78,51 +75,91 @@
                     <span id="carrito-cantidad" class="carrito-badge">0</span>
                 </a>
                 <a href="login.html">
-                    <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"><a
-                            href="login.html">Iniciar Sesión</a></button>
+                    <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+                        Iniciar Sesión
+                    </button>
                 </a>
             </div>
         </div>
     </header>
 
     <h1>Panel de Reportes de Usuario</h1>
+    <div class="max-w-4xl mx-auto overflow-x-auto text-sm mt-6">
+        <table class="min-w-full border-collapse">
+            <thead class="bg-gray-100 text-xs">
+                <tr>
+                    <th class="px-3 py-2">Usuario</th>
+                    <th class="px-3 py-2">Actividad</th>
+                    <th class="px-3 py-2">Fecha</th>
+                    <th class="px-3 py-2">Hora</th>
+                </tr>
+            </thead>
+            <tbody class="text-sm">
+                <tr>
+                    <td class="px-3 py-2">Juan Pérez</td>
+                    <td class="px-3 py-2">Publicó un producto</td>
+                    <td class="px-3 py-2">2025-05-25</td>
+                    <td class="px-3 py-2">14:30</td>
+                </tr>
+                <tr>
+                    <td class="px-3 py-2">Laura Gómez</td>
+                    <td class="px-3 py-2">Envió un mensaje</td>
+                    <td class="px-3 py-2">2025-05-24</td>
+                    <td class="px-3 py-2">11:15</td>
+                </tr>
+                <tr>
+                    <td class="px-3 py-2">Carlos Díaz</td>
+                    <td class="px-3 py-2">Reportó un problema</td>
+                    <td class="px-3 py-2">2025-05-23</td>
+                    <td class="px-3 py-2">--:--</td>
+                </tr>
+                <tr>
+                    <td class="px-3 py-2">Maria López</td>
+                    <td class="px-3 py-2">Registró su cuenta</td>
+                    <td class="px-3 py-2">2025-05-22</td>
+                    <td class="px-3 py-2">--:--</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Usuario</th>
-                <th>Actividad</th>
-                <th>Fecha</th>
-                <th>Hora</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Juan Pérez</td>
-                <td>Publicó un producto</td>
-                <td>2025-05-25</td>
-                <td>14:30</td>
-            </tr>
-            <tr>
-                <td>Laura Gómez</td>
-                <td>Envió un mensaje</td>
-                <td>2025-05-24</td>
-                <td>11:15</td>
-            </tr>
-            <tr>
-                <td>Carlos Díaz</td>
-                <td>Reportó un problema</td>
-                <td>2025-05-23</td>
-            </tr>
-            <tr>
-                <td>Maria López</td>
-                <td>Registró su cuenta</td>
-                <td>2025-05-22</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="max-w-4xl mx-auto mt-6">
+        <canvas id="actividadChart" width="800" height="400"></canvas>
+    </div>
 
-    <canvas id="actividadChart" width="800" height="400"></canvas>
+    <section class="mt-12 bg-white p-6 rounded-lg shadow-md max-w-5xl mx-auto">
+        <h2 class="text-2xl font-semibold mb-6 text-center text-green-700">Resumen de Actividad del Sitio</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 text-center">
+            <div class="p-4 bg-green-50 rounded shadow">
+                <p class="text-gray-500">Productos publicados</p>
+                <h3 class="text-3xl font-bold text-green-600">128</h3>
+            </div>
+            <div class="p-4 bg-blue-50 rounded shadow">
+                <p class="text-gray-500">Ventas simuladas</p>
+                <h3 class="text-3xl font-bold text-blue-600">64</h3>
+            </div>
+            <div class="p-4 bg-yellow-50 rounded shadow">
+                <p class="text-gray-500">Usuarios nuevos (última semana)</p>
+                <h3 class="text-3xl font-bold text-yellow-600">23</h3>
+            </div>
+            <div class="p-4 bg-red-50 rounded shadow">
+                <p class="text-gray-500">Reportes recibidos</p>
+                <h3 class="text-3xl font-bold text-red-600">15</h3>
+            </div>
+        </div>
+        <div class="mb-12">
+            <h3 class="text-lg font-medium mb-4 text-gray-700">Productos publicados por categoría</h3>
+            <div class="w-full h-96">
+                <canvas id="productosCategoriaChart"></canvas>
+            </div>
+        </div>
+        <div>
+            <h3 class="text-lg font-medium mb-4 text-gray-700">Usuarios nuevos por semana</h3>
+            <div class="w-full h-96">
+                <canvas id="usuariosSemanaChart"></canvas>
+            </div>
+        </div>
+    </section>
 
     <footer class="bg-white mt-12 border-t">
         <div class="container mx-auto px-4 py-6 text-center text-sm text-gray-500">
@@ -144,6 +181,7 @@
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 plugins: {
                     legend: { display: false },
                     title: {
@@ -152,7 +190,7 @@
                     }
                 }
             }
-        });  
+        });
     </script>
 
     <script>
@@ -163,7 +201,6 @@
         });
     </script>
     <script>
-        // Inicializar contador al cargar la página
         document.addEventListener("DOMContentLoaded", () => {
             const cantidad = localStorage.getItem("carritoCantidad") || 0;
             document.getElementById("carrito-cantidad").textContent = cantidad;
@@ -175,6 +212,76 @@
             localStorage.setItem("carritoCantidad", cantidad);
             document.getElementById("carrito-cantidad").textContent = cantidad;
         }
+    </script>
+
+    <script>
+        // Gráfico: Productos publicados por categoría
+        const ctxProd = document.getElementById('productosCategoriaChart').getContext('2d');
+        new Chart(ctxProd, {
+            type: 'bar',
+            data: {
+                labels: ['Accesorios', 'Repuestos', 'Bicicletas', 'Indumentaria'],
+                datasets: [{
+                    label: 'Productos por categoría',
+                    data: [40, 25, 45, 18],
+                    backgroundColor: ['#2ecc71', '#f39c12', '#3498db', '#9b59b6']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Productos publicados por categoría'
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            maxRotation: 0,
+                            minRotation: 0
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gráfico: Usuarios nuevos por semana
+        const ctxUsu = document.getElementById('usuariosSemanaChart').getContext('2d');
+        new Chart(ctxUsu, {
+            type: 'line',
+            data: {
+                labels: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+                datasets: [{
+                    label: 'Usuarios nuevos',
+                    data: [5, 7, 6, 5],
+                    borderColor: '#e67e22',
+                    backgroundColor: 'rgba(230, 126, 34, 0.2)',
+                    tension: 0.3,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Crecimiento de usuarios nuevos por semana'
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            maxRotation: 0,
+                            minRotation: 0
+                        }
+                    }
+                }
+            }
+        });
     </script>
 
 </body>
