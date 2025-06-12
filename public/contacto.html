@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <!--
     Tu Bici Online - Contacto
@@ -9,9 +10,12 @@
   -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
   <title>Contacto - Tu Bici Online</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body class="bg-gray-100 text-gray-800">
   <!-- NAVBAR -->
   <header class="bg-white shadow sticky top-0 z-50">
@@ -24,14 +28,27 @@
       </button>
       <nav id="menu" class="hidden lg:flex">
         <ul class="flex flex-col lg:flex-row lg:space-x-6">
-          <li><a href="index.html"     class="block py-2 lg:py-0 hover:text-green-500">Inicio</a></li>
-          <li><a href="tienda.html"    class="block py-2 lg:py-0 hover:text-green-500">Tienda</a></li>
-          <li><a href="publicar.html"  class="block py-2 lg:py-0 hover:text-green-500">Publicar</a></li>
-          <li><a href="contacto.html"  class="block py-2 lg:py-0 hover:text-green-500">Contacto</a></li>
+          <li><a href="index.html" class="block py-2 lg:py-0 hover:text-green-500">Inicio</a></li>
+          <li><a href="nosotros.html" class="block py-2 lg:py-0 hover:text-green-500">Nosotros</a></li>
+          <li><a href="publicar.html" class="block py-2 lg:py-0 hover:text-green-500">Publicar</a></li>
+          <li><a href="contacto.html" class="block py-2 lg:py-0 hover:text-green-500">Contacto</a></li>
         </ul>
       </nav>
-      <div class="hidden lg:block">
-        <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"><a href="login.html">Iniciar Sesión</a></button>
+      <!-- Botón usuario/login -->
+      <div class="hidden lg:flex items-center gap-4">
+        <a href="carrito.html" class="carrito-icon" title="Ver carrito" style="position: relative;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#333" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart">
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="20" cy="21" r="1" />
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+          </svg>
+          <span id="carrito-cantidad" class="carrito-badge">0</span>
+        </a>
+        <a href="login.html">
+          <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"><a href="login.html">Iniciar
+              Sesión</a></button>
+        </a>
       </div>
     </div>
   </header>
@@ -39,31 +56,36 @@
   <!-- Contenido principal -->
   <main class="mt-6 max-w-2xl mx-auto p-6 bg-white rounded shadow">
     <h2 class="text-3xl font-semibold mb-4 text-green-600">Contáctanos</h2>
-    <p class="mb-6 text-gray-600">¿Tienes preguntas o necesitas ayuda? Completa el formulario y nuestro equipo de soporte te responderá a la brevedad.</p>
+    <p class="mb-6 text-gray-600">¿Tienes preguntas o necesitas ayuda? Completa el formulario y nuestro equipo de
+      soporte te responderá a la brevedad.</p>
     <form class="space-y-6">
       <!-- Nombre -->
       <div>
         <label for="nombre" class="block mb-2 font-medium">Nombre</label>
-        <input id="nombre" type="text" placeholder="Tu nombre" 
-               class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
+        <input id="nombre" type="text" placeholder="Tu nombre"
+          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+          required>
       </div>
       <!-- Email -->
       <div>
         <label for="email" class="block mb-2 font-medium">Correo electrónico</label>
-        <input id="email" type="email" placeholder="tucorreo@ejemplo.com" 
-               class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
+        <input id="email" type="email" placeholder="tucorreo@ejemplo.com"
+          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+          required>
       </div>
       <!-- Asunto -->
       <div>
         <label for="asunto" class="block mb-2 font-medium">Asunto</label>
-        <input id="asunto" type="text" placeholder="Resumen breve del problema" 
-               class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required>
+        <input id="asunto" type="text" placeholder="Resumen breve del problema"
+          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+          required>
       </div>
       <!-- Mensaje -->
       <div>
         <label for="mensaje" class="block mb-2 font-medium">Mensaje</label>
-        <textarea id="mensaje" rows="6" placeholder="Escribe tu consulta aquí..." 
-                  class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500" required></textarea>
+        <textarea id="mensaje" rows="6" placeholder="Escribe tu consulta aquí..."
+          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+          required></textarea>
       </div>
       <!-- Botón Enviar -->
       <div class="text-right">
@@ -77,10 +99,25 @@
   <!-- Script menú móvil -->
   <script>
     const btnMenu = document.getElementById('btn-menu');
-    const menu    = document.getElementById('menu');
+    const menu = document.getElementById('menu');
     btnMenu.addEventListener('click', () => {
       menu.classList.toggle('hidden');
     });
   </script>
+  <script>
+    // Inicializar contador al cargar la página
+    document.addEventListener("DOMContentLoaded", () => {
+      const cantidad = localStorage.getItem("carritoCantidad") || 0;
+      document.getElementById("carrito-cantidad").textContent = cantidad;
+    });
+
+    function agregarAlCarrito() {
+      let cantidad = parseInt(localStorage.getItem("carritoCantidad") || "0");
+      cantidad += 1;
+      localStorage.setItem("carritoCantidad", cantidad);
+      document.getElementById("carrito-cantidad").textContent = cantidad;
+    }
+  </script>
 </body>
+
 </html>
