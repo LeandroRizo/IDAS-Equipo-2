@@ -1,35 +1,34 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
-  <!--
-    Tu Bici Online - Contacto
-    Archivo: contacto.html
-    Descripción: Página de contacto con formulario de soporte
-    Fecha: 2025-05-26
-  -->
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-  <title>Contacto - Tu Bici Online</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
+  <title>Bicicleta MTB</title>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
-  <!-- NAVBAR -->
-  <header class="bg-white shadow sticky top-0 z-50">
+<body>
+  <!-- Header / Navegación principal -->
+  <header class="bg-white shadow">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
       <a href="index.html" class="text-2xl font-bold text-green-600">Tu Bici Online</a>
+      <!-- Botón móvil -->
       <button id="btn-menu" class="block lg:hidden focus:outline-none">
         <svg class="h-6 w-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
+      <!-- Menú de navegación -->
       <nav id="menu" class="hidden lg:flex">
         <ul class="flex flex-col lg:flex-row lg:space-x-6">
           <li><a href="index.html" class="block py-2 lg:py-0 hover:text-green-500">Inicio</a></li>
+
           <li><a href="nosotros.html" class="block py-2 lg:py-0 hover:text-green-500">Nosotros</a></li>
+
           <li><a href="publicar.html" class="block py-2 lg:py-0 hover:text-green-500">Publicar</a></li>
           <li><a href="contacto.html" class="block py-2 lg:py-0 hover:text-green-500">Contacto</a></li>
         </ul>
@@ -52,52 +51,71 @@
       </div>
     </div>
   </header>
+  <main>
+    <div class="container-grid">
+      <div class="bici-image">
+        <img src="/public/images/bicicleta-ruta.jpg" alt="Imagen bicicleta" class="h-25 w-full object">
+      </div>
+      <div class="bici-info">
+        <h3>Bicicleta ruta Black & White R29</h3>
+        <span>$ 1.200.000</span>
+        <div class="descripcion-section">
+          <h4>Características del producto:</h4>
+          <ul>
+            <li>Marca: SBK Cycles</li>
+            <li>Talle: L</li>
+            <li>Material del cuadro: Aluminio</li>
+            <li>Color: Black & White</li>
+            <li>Rodado: 29</li>
+            <li>Tipo de frenos: Shimano</li>
+            <li>Tipo de cambio: 20 Velocidades</li>
+          </ul>
+        </div>
+        <div class="btn-section">
+          <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+            onclick="agregarAlCarrito()">Comprar</button>
+        </div>
+      </div>
 
-  <!-- Contenido principal -->
-  <main class="mt-6 max-w-2xl mx-auto p-6 bg-white rounded shadow">
-    <h2 class="text-3xl font-semibold mb-4 text-green-600">Contáctanos</h2>
-    <p class="mb-6 text-gray-600">¿Tienes preguntas o necesitas ayuda? Completa el formulario y nuestro equipo de
-      soporte te responderá a la brevedad.</p>
-    <form class="space-y-6">
-      <!-- Nombre -->
-      <div>
-        <label for="nombre" class="block mb-2 font-medium">Nombre</label>
-        <input id="nombre" type="text" placeholder="Tu nombre"
-          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-          required>
+
+
+
+      <div class="valoracion-section">
+        <h4>Valora este producto</h4>
+        <form class="flex flex-row-reverse justify-center">
+          <input type="radio" name="rating" id="star5-2" class="peer hidden" />
+          <label for="star5-2" title="5 estrellas"
+            class="cursor-pointer text-2xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-300">&#9733;</label>
+
+          <input type="radio" name="rating" id="star4-2" class="peer hidden" />
+          <label for="star4-2" title="4 estrellas"
+            class="cursor-pointer text-2xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-300">&#9733;</label>
+
+          <input type="radio" name="rating" id="star32" class="peer hidden" />
+          <label for="star3-2" title="3 estrellas"
+            class="cursor-pointer text-2xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-300">&#9733;</label>
+
+          <input type="radio" name="rating" id="star2-2" class="peer hidden" />
+          <label for="star2-2" title="2 estrellas"
+            class="cursor-pointer text-2xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-300">&#9733;</label>
+
+          <input type="radio" name="rating" id="star1-2" class="peer hidden" />
+          <label for="star1-2" title="1 estrella"
+            class="cursor-pointer text-2xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-300">&#9733;</label>
+        </form>
       </div>
-      <!-- Email -->
-      <div>
-        <label for="email" class="block mb-2 font-medium">Correo electrónico</label>
-        <input id="email" type="email" placeholder="tucorreo@ejemplo.com"
-          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-          required>
-      </div>
-      <!-- Asunto -->
-      <div>
-        <label for="asunto" class="block mb-2 font-medium">Asunto</label>
-        <input id="asunto" type="text" placeholder="Resumen breve del problema"
-          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-          required>
-      </div>
-      <!-- Mensaje -->
-      <div>
-        <label for="mensaje" class="block mb-2 font-medium">Mensaje</label>
-        <textarea id="mensaje" rows="6" placeholder="Escribe tu consulta aquí..."
-          class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
-          required></textarea>
-      </div>
-      <!-- Botón Enviar -->
-      <div class="text-right">
-        <button type="submit" class="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700">
-          Enviar Mensaje
-        </button>
-      </div>
-    </form>
+    </div>
+    </div>
   </main>
+  <!-- Footer -->
+  <footer class="bg-white mt-12 border-t">
+    <div class="container mx-auto px-4 py-6 text-center text-sm text-gray-500">
+      &copy; 2025 Tu Bici Online. Todos los derechos reservados.
+    </div>
+  </footer>
 
-  <!-- Script menú móvil -->
   <script>
+    // Toggle menú móvil
     const btnMenu = document.getElementById('btn-menu');
     const menu = document.getElementById('menu');
     btnMenu.addEventListener('click', () => {

@@ -8,8 +8,10 @@
   -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <title>Publicar en Tu Bici Online</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="bg-gray-100 text-gray-800">
@@ -27,15 +29,29 @@
             <nav id="menu" class="hidden lg:flex">
                 <ul class="flex flex-col lg:flex-row lg:space-x-6">
                     <li><a href="index.html" class="block py-2 lg:py-0 hover:text-green-500">Inicio</a></li>
-                    <li><a href="index.html" class="block py-2 lg:py-0 hover:text-green-500">Tienda</a></li>
+                    <li><a href="nosotros.html" class="block py-2 lg:py-0 hover:text-green-500">Nosotros</a></li>
                     <li><a href="publicar.html" class="block py-2 lg:py-0 hover:text-green-500">Publicar</a></li>
                     <li><a href="contacto.html" class="block py-2 lg:py-0 hover:text-green-500">Contacto</a></li>
                 </ul>
             </nav>
             <!-- Botón usuario/login -->
-            <div class="hidden lg:block">
-                <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Iniciar Sesión</button>
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="carrito.html" class="carrito-icon" title="Ver carrito" style="position: relative;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#333"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-shopping-cart">
+                        <circle cx="9" cy="21" r="1" />
+                        <circle cx="20" cy="21" r="1" />
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                    </svg>
+                    <span id="carrito-cantidad" class="carrito-badge">0</span>
+                </a>
+                <a href="login.html">
+                    <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"><a
+                            href="login.html">Iniciar Sesión</a></button>
+                </a>
             </div>
+
         </div>
     </header>
 
@@ -116,6 +132,20 @@
         btnMenu.addEventListener('click', () => {
             menu.classList.toggle('hidden');
         });
+    </script>
+    <script>
+        // Inicializar contador al cargar la página
+        document.addEventListener("DOMContentLoaded", () => {
+            const cantidad = localStorage.getItem("carritoCantidad") || 0;
+            document.getElementById("carrito-cantidad").textContent = cantidad;
+        });
+
+        function agregarAlCarrito() {
+            let cantidad = parseInt(localStorage.getItem("carritoCantidad") || "0");
+            cantidad += 1;
+            localStorage.setItem("carritoCantidad", cantidad);
+            document.getElementById("carrito-cantidad").textContent = cantidad;
+        }
     </script>
 </body>
 
