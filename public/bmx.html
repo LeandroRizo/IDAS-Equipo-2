@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <title>Bicicleta BMX</title>
+</head>
+
+<body>
+    <!-- Header / Navegación principal -->
+    <header class="bg-white shadow">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-green-600">Tu Bici Online</a>
+            <!-- Botón móvil -->
+            <button id="btn-menu" class="block lg:hidden focus:outline-none">
+                <svg class="h-6 w-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            <!-- Menú de navegación -->
+            <nav id="menu" class="hidden lg:flex">
+                <ul class="flex flex-col lg:flex-row lg:space-x-6">
+                    <li><a href="index.html" class="block py-2 lg:py-0 hover:text-green-500">Inicio</a></li>
+                    <li><a href="nosotros.html" class="block py-2 lg:py-0 hover:text-green-500">Nosotros</a></li>
+                    <li><a href="publicar.html" class="block py-2 lg:py-0 hover:text-green-500">Publicar</a></li>
+                    <li><a href="contacto.html" class="block py-2 lg:py-0 hover:text-green-500">Contacto</a></li>
+                </ul>
+            </nav>
+            <!-- Botón usuario/login -->
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="carrito.html" class="carrito-icon" title="Ver carrito" style="position: relative;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="#333"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="feather feather-shopping-cart">
+                        <circle cx="9" cy="21" r="1" />
+                        <circle cx="20" cy="21" r="1" />
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                    </svg>
+                    <span id="carrito-cantidad" class="carrito-badge">0</span>
+                </a>
+                <a href="login.html">
+                    <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"><a
+                            href="login.html">Iniciar Sesión</a></button>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container-grid">
+            <div class="bici-image">
+                <img src="images/bicicleta-bmx.webp" alt="Imagen bicicleta">
+            </div>
+            <div class="bici-info">
+                <h3>Bicicleta BMX White R20 S </h3>
+                <span>$ 650.000</span>
+                <div class="descripcion-section">
+                    <h4>Características del producto:</h4>
+                    <ul>
+                        <li>Marca: Fiend</li>
+                        <li>Modelo: Type A</li>
+                        <li>Talle: S</li>
+                        <li>Material del cuadro: aluminio</li>
+                        <li>Color: White</li>
+                        <li>Tipo de frenos: shimano mt200 hidraulicos </li>
+                        <li>Tipo de cambio: Single velocity</li>
+                        <li>Peso: 12kg</li>
+                        <li>Rodado: 20</li>
+                    </ul>
+                </div>
+                <div class="btn-section">
+                    <button class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+                        onclick="agregarAlCarrito()">Comprar</button>
+                </div>
+            </div>
+            <div class="valoracion-section">
+                <h4>Valora este producto</h4>
+                <form class="flex flex-row-reverse justify-center">
+                    <input type="radio" name="rating" id="star5-1" class="peer hidden" />
+                    <label for="star5-1" title="5 estrellas"
+                        class="cursor-pointer text-2xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-300">&#9733;</label>
+
+                    <input type="radio" name="rating" id="star4-1" class="peer hidden" />
+                    <label for="star4-1" title="4 estrellas"
+                        class="cursor-pointer text-2xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-300">&#9733;</label>
+
+                    <input type="radio" name="rating" id="star3-1" class="peer hidden" />
+                    <label for="star3-1" title="3 estrellas"
+                        class="cursor-pointer text-2xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-300">&#9733;</label>
+
+                    <input type="radio" name="rating" id="star2-1" class="peer hidden" />
+                    <label for="star2-1" title="2 estrellas"
+                        class="cursor-pointer text-2xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-300">&#9733;</label>
+
+                    <input type="radio" name="rating" id="star1-1" class="peer hidden" />
+                    <label for="star1-1" title="1 estrella"
+                        class="cursor-pointer text-2xl text-gray-300 peer-checked:text-yellow-400 hover:text-yellow-300">&#9733;</label>
+                </form>
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-white mt-12 border-t">
+        <div class="container mx-auto px-4 py-6 text-center text-sm text-gray-500">
+            &copy; 2025 Tu Bici Online. Todos los derechos reservados.
+        </div>
+    </footer>
+    <!-- Scripts de interactividad -->
+    <script>
+        // Toggle menú móvil
+        const btnMenu = document.getElementById('btn-menu');
+        const menu = document.getElementById('menu');
+        btnMenu.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+    </script>
+    <script>
+    // Inicializar contador al cargar la página
+    document.addEventListener("DOMContentLoaded", () => {
+      const cantidad = localStorage.getItem("carritoCantidad") || 0;
+      document.getElementById("carrito-cantidad").textContent = cantidad;
+    });
+
+    function agregarAlCarrito() {
+      let cantidad = parseInt(localStorage.getItem("carritoCantidad") || "0");
+      cantidad += 1;
+      localStorage.setItem("carritoCantidad", cantidad);
+      document.getElementById("carrito-cantidad").textContent = cantidad;
+    }
+  </script>
+</body>
+
+</html>
